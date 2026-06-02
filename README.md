@@ -456,6 +456,16 @@ news-stock-selector/
 
 ---
 
+## 测试交流群
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AXBIAO/news-stock-selector/master/assets/qrcode.png" alt="测试交流群二维码" width="300">
+</p>
+
+<p align="center">扫码加入测试交流群，获取最新更新和使用帮助</p>
+
+---
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
