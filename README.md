@@ -1,4 +1,4 @@
-# 新闻选股助手 (News Stock Selector)
+<h1 align="center">新闻选股助手 (News Stock Selector)</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-3.6.0-blue?style=flat-square" alt="Version 3.6.0">
