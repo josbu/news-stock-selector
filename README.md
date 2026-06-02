@@ -448,21 +448,11 @@ news-stock-selector/
 
 ## 测试交流群
 
-有兴趣的可以一起聊聊，有时间会更新
-
-![Uploading 62059b3f469982f8cb37baa4b840b59d.jpg…]()
-
-
-
----
-
-## 测试交流群
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/AXBIAO/news-stock-selector/master/assets/qrcode.png" alt="测试交流群二维码" width="300">
 </p>
 
-<p align="center">扫码加入测试交流群，获取最新更新和使用帮助</p>
+<p align="center">有兴趣的可以一起聊聊，有时间会更新</p>
 
 ---
 
