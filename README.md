@@ -412,6 +412,12 @@ news-stock-selector/
 
 ---
 
+## 鸣谢
+
+学AI，上L站！ 感谢 [Linux.do](https://linux.do) 社区支持。
+
+---
+
 ## 贡献者 (Contributors)
 
 | 贡献者 | 角色 |
