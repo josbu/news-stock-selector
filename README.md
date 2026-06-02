@@ -249,28 +249,42 @@ xueqiu (实时, 4次重试)
 
 ---
 
-## 安装与前置条件
+## 安装方式
 
-### 环境要求
+本技能是一个 Claude Code Skill，存放在 `~/.claude/skills/news-stock-selector/` 目录下。安装步骤如下：
+
+1. **Clone 仓库：**
+   ```bash
+   git clone https://github.com/AXBIAO/news-stock-selector.git
+   ```
+
+2. **链接到 Claude Code skills 目录：**
+   ```bash
+   # Windows (PowerShell)
+   New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\news-stock-selector" -Target "C:\path\to\news-stock-selector"
+
+   # macOS / Linux
+   ln -s /path/to/news-stock-selector ~/.claude/skills/news-stock-selector
+   ```
+
+   或直接将仓库目录拷贝到 `~/.claude/skills/news-stock-selector/`。
+
+3. **安装 Python 依赖：**
+   ```bash
+   pip install tushare akshare requests
+   ```
+
+4. **配置环境变量（可选）：**
+   ```bash
+   export TUSHARE_TOKEN="your_token"
+   export TUSHARE_HTTP_URL="your_url"
+   export NEWS_STOCK_REPORT_DIR="$HOME/新闻选股报告"
+   ```
+
+### 前置条件
 
 - Python >= 3.10
 - Claude Code（作为 Skill 运行）
-
-### MCP 工具依赖
-
-| MCP 工具 | 用途 |
-|----------|------|
-| `mcp__mcp-router__search` | 多引擎新闻搜索（Bing, LinuxDo, 掘金等） |
-| `mcp__mcp-router__web_search_exa` | Exa 语义搜索 |
-| `mcp__mcp-router__fetchWebContent` | 网页正文提取 |
-| `mcp__mcp-router__search_stock` | 股票代码/名称查询 |
-| `mcp__mcp-router__get_kline` | 个股 K 线数据 |
-| `mcp__mcp-router__get_kline_history` | 历史 K 线数据 |
-| `mcp__mcp-router__get_index` | 指数 K 线数据 |
-| `mcp__mcp-router__get_index_all` | 指数+成分股 K 线 |
-| `mcp__mcp-router__get_market_stats` | 市场统计信息 |
-
-> 注意：MCP 行情接口 (`get_quote` / `get_batch_quote` / `get_stock_info`) 已被标记为废弃，所有实时行情统一走 Python `data_sources.py` 模块。
 
 ### Python 包依赖
 
@@ -286,6 +300,24 @@ pip install tushare akshare requests
 | `TUSHARE_HTTP_URL` | 推荐 | TuShare Pro HTTP 接口地址 | 空（TuShare Pro 层自动降级） |
 | `NEWS_STOCK_REPORT_DIR` | 否 | HTML 报告输出目录 | `~/新闻选股报告/` |
 | `NEWS_STOCK_AUTO_OPEN` | 否 | 是否自动打开浏览器 | `1`（开启） |
+
+---
+
+## MCP 工具依赖
+
+| MCP 工具 | 用途 |
+|----------|------|
+| `mcp__mcp-router__search` | 多引擎新闻搜索（Bing, LinuxDo, 掘金等） |
+| `mcp__mcp-router__web_search_exa` | Exa 语义搜索 |
+| `mcp__mcp-router__fetchWebContent` | 网页正文提取 |
+| `mcp__mcp-router__search_stock` | 股票代码/名称查询 |
+| `mcp__mcp-router__get_kline` | 个股 K 线数据 |
+| `mcp__mcp-router__get_kline_history` | 历史 K 线数据 |
+| `mcp__mcp-router__get_index` | 指数 K 线数据 |
+| `mcp__mcp-router__get_index_all` | 指数+成分股 K 线 |
+| `mcp__mcp-router__get_market_stats` | 市场统计信息 |
+
+> 注意：MCP 行情接口 (`get_quote` / `get_batch_quote` / `get_stock_info`) 已被标记为废弃，所有实时行情统一走 Python `data_sources.py` 模块。
 
 ---
 
