@@ -251,40 +251,64 @@ xueqiu (实时, 4次重试)
 
 ## 安装方式
 
-本技能是一个 Claude Code Skill，存放在 `~/.claude/skills/news-stock-selector/` 目录下。安装步骤如下：
+### 一键安装
 
-1. **Clone 仓库：**
+**Linux / macOS:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/AXBIAO/news-stock-selector/master/install.sh | bash
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/AXBIAO/news-stock-selector/master/install.ps1 | iex
+```
+
+### 手动安装
+
+1. **Clone 仓库并链接到 Claude Code skills 目录：**
    ```bash
-   git clone https://github.com/AXBIAO/news-stock-selector.git
+   git clone https://github.com/AXBIAO/news-stock-selector.git ~/.claude/skills/news-stock-selector
    ```
-
-2. **链接到 Claude Code skills 目录：**
+   或将仓库克隆到任意位置后创建软链接：
    ```bash
-   # Windows (PowerShell)
-   New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\news-stock-selector" -Target "C:\path\to\news-stock-selector"
-
    # macOS / Linux
    ln -s /path/to/news-stock-selector ~/.claude/skills/news-stock-selector
+
+   # Windows (PowerShell)
+   New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\news-stock-selector" -Target "C:\path\to\news-stock-selector"
    ```
 
-   或直接将仓库目录拷贝到 `~/.claude/skills/news-stock-selector/`。
-
-3. **安装 Python 依赖：**
+2. **安装 Python 依赖：**
    ```bash
    pip install tushare akshare requests
    ```
 
-4. **配置环境变量（可选）：**
+3. **配置环境变量：**
    ```bash
    export TUSHARE_TOKEN="your_token"
    export TUSHARE_HTTP_URL="your_url"
-   export NEWS_STOCK_REPORT_DIR="$HOME/新闻选股报告"
+   export NEWS_STOCK_REPORT_DIR="$HOME/新闻选股报告"  # 可选
    ```
+
+### MCP Router 配置
+
+所有 9 个 MCP 工具均由 **mcp-router** 服务统一提供。编辑 `~/.claude/mcp.json`，添加以下配置：
+
+```json
+"mcp-router": {
+  "command": "npx",
+  "args": ["-y", "@mcp_router/cli@latest", "connect"],
+  "env": { "MCPR_TOKEN": "你的MCPR_TOKEN" }
+}
+```
+
+**获取 MCPR_TOKEN**：联系服务提供方获取（[mcp-router 文档](https://mcp-router.example.com)）。
 
 ### 前置条件
 
 - Python >= 3.10
 - Claude Code（作为 Skill 运行）
+- Git
 
 ### Python 包依赖
 
@@ -305,19 +329,23 @@ pip install tushare akshare requests
 
 ## MCP 工具依赖
 
-| MCP 工具 | 用途 |
-|----------|------|
-| `mcp__mcp-router__search` | 多引擎新闻搜索（Bing, LinuxDo, 掘金等） |
-| `mcp__mcp-router__web_search_exa` | Exa 语义搜索 |
-| `mcp__mcp-router__fetchWebContent` | 网页正文提取 |
-| `mcp__mcp-router__search_stock` | 股票代码/名称查询 |
-| `mcp__mcp-router__get_kline` | 个股 K 线数据 |
-| `mcp__mcp-router__get_kline_history` | 历史 K 线数据 |
-| `mcp__mcp-router__get_index` | 指数 K 线数据 |
-| `mcp__mcp-router__get_index_all` | 指数+成分股 K 线 |
-| `mcp__mcp-router__get_market_stats` | 市场统计信息 |
+所有 MCP 工具由 **mcp-router** 服务统一提供。配置好 `mcp.json` 后即可使用以下全部工具：
 
-> 注意：MCP 行情接口 (`get_quote` / `get_batch_quote` / `get_stock_info`) 已被标记为废弃，所有实时行情统一走 Python `data_sources.py` 模块。
+| MCP 工具 | 用途 | 来源 |
+|----------|------|------|
+| `mcp__mcp-router__search` | 多引擎新闻搜索（Bing, LinuxDo, 掘金等） | mcp-router |
+| `mcp__mcp-router__web_search_exa` | Exa 语义搜索 | mcp-router |
+| `mcp__mcp-router__fetchWebContent` | 网页正文提取 | mcp-router |
+| `mcp__mcp-router__search_stock` | 股票代码/名称查询 | mcp-router |
+| `mcp__mcp-router__get_kline` | 个股 K 线数据 | mcp-router |
+| `mcp__mcp-router__get_kline_history` | 历史 K 线数据 | mcp-router |
+| `mcp__mcp-router__get_index` | 指数 K 线数据 | mcp-router |
+| `mcp__mcp-router__get_index_all` | 指数+成分股 K 线 | mcp-router |
+| `mcp__mcp-router__get_market_stats` | 市场统计信息 | mcp-router |
+
+**安装方式**：编辑 `~/.claude/mcp.json`，添加 mcp-router 配置（见上方 [MCP Router 配置](#mcp-router-配置)）。
+
+> **已废弃**：MCP 行情接口 (`get_quote` / `get_batch_quote` / `get_stock_info`) 请勿使用，所有实时行情统一走 Python `data_sources.py` 模块。
 
 ---
 
