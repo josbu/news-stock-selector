@@ -424,6 +424,14 @@ news-stock-selector/
 
 ---
 
+## 贡献者 (Contributors)
+
+| 贡献者 | 角色 |
+|--------|------|
+| [AXBIAO](https://github.com/AXBIAO) | 文档编写 |
+
+---
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
