@@ -382,18 +382,6 @@ news-stock-selector/
 
 ---
 
-## 相关技能
-
-| 技能 | 关系 |
-|------|------|
-| [ftshare-market-data-main](https://github.com/AXBIAO/ftshare-market-data-main) | 底层金融数据接口（行情 / K线 / 指数 / ETF / 港股） |
-| [stock-screener](https://github.com/AXBIAO/stock-screener) | 量化筛选器，按条件筛选全市场标的 |
-| [lhb-analyzer](https://github.com/AXBIAO/lhb-analyzer) | 龙虎榜深度分析，识别游资席位与机构博弈 |
-| [trap-detector](https://github.com/AXBIAO/trap-detector) | 杀猪盘检测，8 信号扫描 + 风险评级 |
-| [deep-analysis](https://github.com/AXBIAO/deep-analysis) | 个股深度分析（22维数据 + DCF + 50人评审团） |
-
----
-
 ## 版本历史
 
 ### v3.6.0 (Current)
