@@ -30,15 +30,6 @@ echo "[3/4] Skill 已安装到: $SKILL_DIR"
 echo ""
 echo "[4/4] 接下来手动配置以下内容："
 echo ""
-echo "  📌 配置 MCP Router (搜索/新闻/K线/指数 工具):"
-echo "     编辑 ~/.claude/mcp.json，添加："
-echo ""
-echo '     "mcp-router": {'
-echo '       "command": "npx",'
-echo '       "args": ["-y", "@mcp_router/cli@latest", "connect"],'
-echo '       "env": { "MCPR_TOKEN": "你的MCPR_TOKEN" }'
-echo '     }'
-echo ""
 echo "  📌 配置 TuShare (行情数据):"
 echo '     export TUSHARE_TOKEN="你的TUSHARE_TOKEN"'
 echo '     export TUSHARE_HTTP_URL="你的TUSHARE_HTTP_URL"'

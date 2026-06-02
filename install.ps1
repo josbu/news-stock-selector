@@ -30,15 +30,6 @@ Write-Host "[3/4] Skill 已安装到: $SkillDir" -ForegroundColor Green
 Write-Host ""
 Write-Host "[4/4] 接下来手动配置以下内容：" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "  📌 配置 MCP Router (搜索/新闻/K线/指数 工具):" -ForegroundColor White
-Write-Host "     编辑 ~/.claude/mcp.json，添加："
-Write-Host ""
-Write-Host '     "mcp-router": {'
-Write-Host '       "command": "npx",'
-Write-Host '       "args": ["-y", "@mcp_router/cli@latest", "connect"],'
-Write-Host '       "env": { "MCPR_TOKEN": "你的MCPR_TOKEN" }'
-Write-Host '     }'
-Write-Host ""
 Write-Host "  📌 配置 TuShare (行情数据):" -ForegroundColor White
 Write-Host '     setx TUSHARE_TOKEN "你的TUSHARE_TOKEN"'
 Write-Host '     setx TUSHARE_HTTP_URL "你的TUSHARE_HTTP_URL"'
